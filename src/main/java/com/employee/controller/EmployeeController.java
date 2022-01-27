@@ -3,10 +3,7 @@ package com.employee.controller;
 import com.employee.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.employee.model.Employee;
 // import com.employee.repository.EmployeeRepository;
@@ -27,6 +24,15 @@ public class EmployeeController {
     @PostMapping("/addEmployee")
     public Map<String, String> addEmployees(@RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
+    }
+    @GetMapping("/employee/{city}/")
+    public List<Employee> getEmployeeByCity(@PathVariable("city") String city){
+        return employeeService.getAllEmployeeByCity(city);
+    }
+
+    @GetMapping("/employee/{city}/{age}/")
+    public List<Employee> getEmployeeByCityAndAge(@PathVariable("city") String city, @PathVariable("age") int age){
+        return employeeService.getAllEmployeeByCityAndAge(city, age);
     }
 
 }

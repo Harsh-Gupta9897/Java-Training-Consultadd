@@ -33,4 +33,11 @@ public class EmployeeService {
              
         }
     }
+
+    public List<Employee> getAllEmployeeByCity(String city ){
+        return employeeRepository.findAllByCity(city);
+    }
+    public List<Employee> getAllEmployeeByCityAndAge(String city ,int Age){
+        return employeeRepository.getByCityAndAge(city, Age);
+    }
 }

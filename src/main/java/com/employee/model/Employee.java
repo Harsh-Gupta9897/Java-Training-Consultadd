@@ -11,7 +11,8 @@ public class Employee {
     @Id
     private String id;
     private String name;
-    private int age;   
+    private int age;
+    private String city;
     
      public Employee(){}
 
@@ -19,6 +20,7 @@ public class Employee {
         this.age = age;
         this.id = id;
         this.name = name;
+        this.city = city;
     }
 
     
@@ -35,6 +37,13 @@ public class Employee {
     }
     public void setName(String name){
         this.name=name;
+    }
+
+    public String getCity(){
+        return city;
+    }
+    public void setCity(String city){
+        this.city=city;
     }
     
     public int getAge(){
